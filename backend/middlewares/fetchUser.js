@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_KEY = 'AnuragPatel1234@';
+const JWT_KEY = 'AnuragPatel1234';
 const fetchUser = (req, res, next)=>{
 const token = req.header('auth-token');
 if(!token){

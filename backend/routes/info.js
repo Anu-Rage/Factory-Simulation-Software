@@ -110,4 +110,16 @@ router.delete('/deletefactoryinfo/:id', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 })
+
+router.get('/fetchinfo/:id', fetchuser, async (req, res) => {
+    try {
+        const factoryinfos = await Factoryinfo.find({ _id : req.params.id });
+        res.json(factoryinfos)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 module.exports = router
+
