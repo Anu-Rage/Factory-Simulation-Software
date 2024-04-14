@@ -35,8 +35,6 @@ export const Register = () => {
         const authToken = responseData.authToken; // Extract authToken from response data
         // Registration successful, log authToken and navigate to login page
         console.log('Registration successful. AuthToken:', authToken);
-        localStorage.setItem('authToken', authToken);
-        // 3 seconds (adjust as needed)
         setRegistrationSuccess(true);
         
       } else {
@@ -58,7 +56,7 @@ export const Register = () => {
 
   return (
     
-    <div className="max-w-md mx-auto mt-8 p-6 bg-gray-100 shadow-md rounded-md">
+    <div className="max-w-md mx-auto mt-[120px] p-6 bg-gray-100 shadow-md rounded-md">
       <h2 className="text-2xl font-bold mb-4">Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

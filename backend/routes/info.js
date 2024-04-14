@@ -48,7 +48,7 @@ router.post('/addfactoryinfo', fetchuser, [
 
 // ROUTE 3: Update an existing Factoryinfo using: PUT "/api/info/updatefactoryinfo". Login required
 router.put('/updatefactoryinfo/:id', fetchuser, async (req, res) => {
-   const {Category, Total_adjuster_busy_hours,Time_span, Total_running_hours, No_of_machines, No_of_adjusters, Avg_adjuster_utilization, Avg_machine_utilization, optimum_no_of_adjusters} = req.body;
+   const {Category, Total_adjuster_busy_hours,Time_span, Total_running_hours, No_of_machines, No_of_adjusters} = req.body;
     try {
         // Create a newFactoryinfo object
         const newFactoryinfo = {};

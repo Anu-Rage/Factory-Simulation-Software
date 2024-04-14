@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,6 @@ export const Navbar = () => {
           {/* Navigation links */}
           <div className="hidden lg:flex space-x-4">
             <a href="#" className="text-white hover:text-gray-300">Home</a>
-            <a href="#" className="text-white hover:text-gray-300">Factory Info</a>
             <a href="#" className="text-white hover:text-gray-300">Services</a>
             <a href="#" className="text-white hover:text-gray-300">Contact</a>
           </div>
@@ -36,10 +36,15 @@ export const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="#" className="block text-white hover:text-gray-300">Home</a>
-            <a href="#" className="block text-white hover:text-gray-300">Factory Info</a>
-            <a href="#" className="block text-white hover:text-gray-300">Services</a>
-            <a href="#" className="block text-white hover:text-gray-300">Contact</a>
+          <Link to="/">
+            <a href="#" className="block text-white hover:text-gray-300"/>Home
+          </Link>
+          <Link to='/Services'>
+            <a href="#" className="block text-white hover:text-gray-300"/>Services
+            </Link>
+          <Link to='/Login'>
+            <a href="#" className="block text-white hover:text-gray-300"/>Contact
+          </Link>
           </div>
         </div>
       )}
