@@ -39,6 +39,7 @@ export const Login = () => {
         // Redirect to dashboard or set user authentication state
       } else {
         // Login failed, handle errors
+        alert("Bad credential");
         console.error('Login failed');
       }
     } catch (error) {

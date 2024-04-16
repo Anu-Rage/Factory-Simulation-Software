@@ -107,14 +107,19 @@ try {
  
 
 // Router 3 for getting user : get loggedin user details
-router.post('/getUser', fetchUser, async (req, res) => {
-try{
-   const userId= req.user.id;
-const user = await User.findById(userId).select("-password");
-res.send(user);
-}catch (error) {
-   console.error(error.message);
-   res.status(500).send("Internal Serve Error!!");
-}
+router.get('/getUser', fetchUser, async (req, res) => {
+   try {
+      const userinfo = await User.findById(req.user.id);
+      if (!userinfo) {
+        console.error('User not found');
+        return res.status(404).send('User not found');
+      }
+      res.json(userinfo);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
 })
+
+
 module.exports = router

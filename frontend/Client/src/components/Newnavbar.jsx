@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 export const Newnavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [islogout,setislogout] =useState(false);
+
+  const handleClick = ()=>{
+    console.log('Logged out successfully!');
+    localStorage.removeItem('authToken');
+    console.log('authToken removed from local storage');
+    setislogout(true);
+  };
+
+  if(islogout){
+    return <Navigate to="/Login"/>
+  }
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -14,7 +26,7 @@ export const Newnavbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-white text-xl font-bold">Logo</a>
+            <a href="#" className="text-white text-xl font-bold">FSSS</a>
           </div>
           {/* Hamburger menu for mobile */}
           <div className="flex lg:hidden">
@@ -26,9 +38,9 @@ export const Newnavbar = () => {
           </div>
           {/* Navigation links */}
           <div className="hidden lg:flex space-x-4">
-            <a href="/FactoryInfo" className="text-white hover:text-gray-300">Add factory Info</a>
-            <a href="/Allinfo" className="text-white hover:text-gray-300">Display all Info</a>
-            <a href="/Contact" className="text-white hover:text-gray-300">Logout</a>
+            <Link to="/FactoryInfo" className="text-white hover:text-gray-300">Add factory Info</Link>
+            <Link to="/Allinfo" className="text-white hover:text-gray-300">Display all Info</Link>
+            <Link to="/Login" onClick={handleClick} className="text-white hover:text-gray-300">Logout</Link>
           </div>
         </div>
       </div>
@@ -36,15 +48,9 @@ export const Newnavbar = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link to="/">
-            <a href="/" className="block text-white hover:text-gray-300"/>Add factory Info
-          </Link>
-          <Link to='/Services'>
-            <a href="/Services" className="block text-white hover:text-gray-300"/>Display all Info
-            </Link>
-          <Link to='/Contact'>
-            <a href="/Contact" className="block text-white hover:text-gray-300"/>Logout
-          </Link>
+            <Link to="/" className="block text-white hover:text-gray-300">Add factory Info</Link>
+            <Link to="/Allinfo" className="block text-white hover:text-gray-300">Display all Info</Link>
+            <Link to="/Login" onClick={handleClick} className="block text-white hover:text-gray-300">Logout</Link>
           </div>
         </div>
       )}

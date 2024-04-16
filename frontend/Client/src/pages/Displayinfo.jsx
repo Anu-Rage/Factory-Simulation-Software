@@ -34,7 +34,7 @@ export const Displayinfo = () => {
     <>
     <Newnavbar />
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Factory Information</h2>
+      <h2 className="text-2xl font-bold mb-4">Factory Simulation Information</h2>
       {factoryInfos.map((factoryInfo) => (
         <Customcard key={factoryInfo._id} factoryInfo={factoryInfo} />
       ))}

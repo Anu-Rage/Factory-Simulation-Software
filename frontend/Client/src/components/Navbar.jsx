@@ -14,7 +14,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-white text-xl font-bold">Logo</a>
+            <a href="#" className="text-white text-xl font-bold">FSSS</a>
           </div>
           {/* Hamburger menu for mobile */}
           <div className="flex lg:hidden">
@@ -36,15 +36,9 @@ export const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link to="/">
             <a href="/" className="block text-white hover:text-gray-300"/>Home
-          </Link>
-          <Link to='/Services'>
             <a href="/Services" className="block text-white hover:text-gray-300"/>Services
-            </Link>
-          <Link to='/Contact'>
             <a href="/Contact" className="block text-white hover:text-gray-300"/>Contact
-          </Link>
           </div>
         </div>
       )}
