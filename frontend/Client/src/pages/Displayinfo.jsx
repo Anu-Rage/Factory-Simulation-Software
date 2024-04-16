@@ -1,7 +1,7 @@
 import React from "react";
-import { Navbar} from "../components/Navbar";
 import { Customcard } from "../components/Customcard";
 import { useState, useEffect } from 'react';
+import { Newnavbar } from "../components/Newnavbar";
 
 export const Displayinfo = () => {
   const [factoryInfos, setFactoryInfos] = useState([]);
@@ -32,7 +32,7 @@ export const Displayinfo = () => {
 
   return (
     <>
-    <Navbar />
+    <Newnavbar />
     <div className="container mx-auto mt-8">
       <h2 className="text-2xl font-bold mb-4">Factory Information</h2>
       {factoryInfos.map((factoryInfo) => (

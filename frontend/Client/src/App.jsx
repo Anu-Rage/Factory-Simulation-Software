@@ -6,6 +6,8 @@ import { Loginpage } from './pages/Loginpage.jsx';
 import { Factoryinfo } from './pages/Factoryinfo.jsx';
 import { Displayinfo } from './pages/Displayinfo.jsx';
 import { Updateinfo } from './pages/Updateinfo.jsx';
+import { Services } from './pages/Services.jsx';
+import { Contact } from './pages/Contact.jsx';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
         <Route path="/Factoryinfo" element={<Factoryinfo />} />
         <Route path="/Allinfo" element={<Displayinfo/>} />
         <Route path="/Updateinfo/:id" element={<Updateinfo/>} />
+        <Route path="/Services" element ={<Services/>} />
+        <Route path="/Contact" element ={<Contact/>} />
       </Routes>
     </BrowserRouter>
     </>

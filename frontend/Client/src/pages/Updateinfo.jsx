@@ -1,11 +1,11 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
+import { Newnavbar } from '../components/Newnavbar.jsx'
 import { Updateinfoform } from '../components/Updateinfoform.jsx'
 
 export const Updateinfo = () => {
   return (
     <>
-    <Navbar />
+    <Newnavbar />
     <Updateinfoform />
     </>
     

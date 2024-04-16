@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Navbar = () => {
+export const Newnavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -26,9 +26,9 @@ export const Navbar = () => {
           </div>
           {/* Navigation links */}
           <div className="hidden lg:flex space-x-4">
-            <a href="/" className="text-white hover:text-gray-300">Home</a>
-            <a href="/Services" className="text-white hover:text-gray-300">Services</a>
-            <a href="/Contact" className="text-white hover:text-gray-300">Contact</a>
+            <a href="/FactoryInfo" className="text-white hover:text-gray-300">Add factory Info</a>
+            <a href="/Allinfo" className="text-white hover:text-gray-300">Display all Info</a>
+            <a href="/Contact" className="text-white hover:text-gray-300">Logout</a>
           </div>
         </div>
       </div>
@@ -37,13 +37,13 @@ export const Navbar = () => {
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
           <Link to="/">
-            <a href="/" className="block text-white hover:text-gray-300"/>Home
+            <a href="/" className="block text-white hover:text-gray-300"/>Add factory Info
           </Link>
           <Link to='/Services'>
-            <a href="/Services" className="block text-white hover:text-gray-300"/>Services
+            <a href="/Services" className="block text-white hover:text-gray-300"/>Display all Info
             </Link>
           <Link to='/Contact'>
-            <a href="/Contact" className="block text-white hover:text-gray-300"/>Contact
+            <a href="/Contact" className="block text-white hover:text-gray-300"/>Logout
           </Link>
           </div>
         </div>
@@ -51,6 +51,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-
-
