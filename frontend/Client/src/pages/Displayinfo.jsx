@@ -28,13 +28,15 @@ export const Displayinfo = () => {
     };
 
     fetchData();
-  }, []);
+  }, [factoryInfos]);
 
   return (
     <>
     <Newnavbar />
+    <div className="container mx-auto mt-8 flex flex-col items-center">
+    <h2 className="text-2xl font-bold mb-4 self-center">Factory Simulations </h2>
+    </div>
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Factory Simulation Information</h2>
       {factoryInfos.map((factoryInfo) => (
         <Customcard key={factoryInfo._id} factoryInfo={factoryInfo} />
       ))}

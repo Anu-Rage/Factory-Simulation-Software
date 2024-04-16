@@ -15,7 +15,6 @@ export const Customcard = ({ factoryInfo, onDelete }) => {
           });
           const data = await response.json(); // Parse response JSON
           console.log(data); // Log the response from the server
-          alert('Refresh to see changes');
           // Assuming you want to update the UI after deletion, you can trigger a re-fetch of factory info or update the state accordingly
         } catch (error) {
           console.error('Error:', error);
