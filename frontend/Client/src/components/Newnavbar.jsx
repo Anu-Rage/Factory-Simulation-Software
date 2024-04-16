@@ -48,7 +48,7 @@ export const Newnavbar = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link to="/" className="block text-white hover:text-gray-300">Add factory Info</Link>
+            <Link to="/FactoryInfo" className="block text-white hover:text-gray-300">Add factory Info</Link>
             <Link to="/Allinfo" className="block text-white hover:text-gray-300">Display all Info</Link>
             <Link to="/Login" onClick={handleClick} className="block text-white hover:text-gray-300">Logout</Link>
           </div>

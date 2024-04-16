@@ -18,6 +18,18 @@ export const Front = () => {
       <li>Simple to use interface</li>
       <li>Secure data management to protect sensitive information</li>
     </ul>
+    <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-2">Connect with me:</h2>
+        <ul className="flex space-x-4">
+          <li>
+            <a href="https://github.com/Anu-Rage/Factory-Simulation-Software" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">GitHub</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/anurag-patel-094541219/" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-700">LinkedIn</a>
+          </li>
+          {/* Add more links as needed */}
+        </ul>
+      </div>
   </div>
 {/* Right side with buttons */}
 <div className="lg:w-3/5 mx-auto">

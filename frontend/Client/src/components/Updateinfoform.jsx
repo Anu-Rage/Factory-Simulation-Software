@@ -69,13 +69,14 @@ export const Updateinfoform = () => {
             if (response.ok) {
                 setSuccessMessage('Factory information updated successfully.');
                 setErrors({});
+                alert('Information Updated!')
             } else {
                 setSuccessMessage('');
                 setErrors(responseData.errors || {});
             }
         } catch (error) {
             setSuccessMessage('');
-            setErrors({ server: 'An error occurred.' });
+            setErrors({ server: 'An error occurred. Please enter all details.' });
         }
     };
 
@@ -87,7 +88,7 @@ export const Updateinfoform = () => {
          <div className="container mx-auto px-4 py-8">
           <div className="max-w-md mx-auto bg-gray-500 rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
-              <h2 className="text-2xl font-bold mb-6">Add Factory Information</h2>
+              <h2 className="text-2xl font-bold mb-6">Update Factory Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                   <label className="block mb-2">Machine Type</label>
@@ -165,12 +166,12 @@ export const Updateinfoform = () => {
                 </div>
     
               </div>
-              <button type="button" onClick={handleSubmit} className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button type="button" onClick={handleSubmit} className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto">
                 Submit
                </button>
     
               {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
-              {errors.server && <p className="error-text mt-4">{errors.server}</p>}
+              {errors.server && <p className="text-red-500 error-text mt-4">{errors.server}</p>}
             </div>
           </div>
         </div>

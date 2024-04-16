@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Addfactory = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +9,20 @@ export const Addfactory = () => {
     No_of_adjusters: '',
     No_of_machines: ''
   });
+
+  const [revData,setrevData] = useState({
+    Avg_adjuster_utilization:'',
+    Mttf:'',
+    Avg_machine_utilization:'',
+    optimum_no_of_adjusters:''
+  })
+
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
+  const [display1,setDisplayValue1] =useState(false);
+  const [display2,setDisplayValue2] =useState(false);
+  const [display3,setDisplayValue3] =useState(false);
+  const [display4,setDisplayValue4] =useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +31,27 @@ export const Addfactory = () => {
       [name]: value
     }));
   };
+
+  const datadisplay = (x)=>{
+    switch(x){
+    case '1':
+        setDisplayValue1(true);
+        console.log(display1);
+        break;
+    case '2':
+        setDisplayValue2(true);
+        console.log(display2);
+        break;
+      case '3':
+        setDisplayValue3(true);
+        console.log(display3);
+        break;
+      case '4':
+        setDisplayValue4(true);
+        console.log(display4);
+        break;
+    }
+  }
 
   const handleSubmit = async () => {
     try {
@@ -33,6 +66,11 @@ export const Addfactory = () => {
 
       const responseData = await response.json();
       if (response.ok) {
+        const data = {Avg_adjuster_utilization:responseData.Avg_adjuster_utilization,
+        Mttf:responseData.Mttf,
+        Avg_machine_utilization:responseData.Avg_machine_utilization,
+        optimum_no_of_adjusters:responseData.optimum_no_of_adjusters};
+        setrevData(data);
         setSuccessMessage('Factory information added successfully.');
         setErrors({});
       } else {
@@ -128,15 +166,52 @@ export const Addfactory = () => {
             </div>
 
           </div>
-          <button type="button" onClick={handleSubmit} className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            Submit
-           </button>
+          <button
+  type="button"
+  onClick={handleSubmit}
+  className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto"
+>Submit</button>
 
           {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
           {errors.server && <p className="error-text mt-4">{errors.server}</p>}
         </div>
       </div>
     </div>
+    <div className="flex justify-center mt-8">
+      <button onClick={() =>datadisplay('1')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        Avg_adjuster_utilization
+      </button>
+      <button onClick={() =>datadisplay('2')} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        Avg_machine_utilization
+      </button>
+      <button onClick={() =>datadisplay('3')} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        MTTF
+      </button>
+      <button onClick={() =>datadisplay('4')} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Optimum_no_of_adjusters
+      </button>
+    </div>
+    <div className="flex justify-center mt-8">
+    <ul>
+        {display1 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Avg_adjuster_utilization: {revData.Avg_adjuster_utilization}</strong>
+        </div>
+</li>}
+        {display2 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Avg_machine_utilization: {revData.Avg_machine_utilization}</strong>
+        </div>
+</li>}
+        {display3 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">  MTTF: {revData.Mttf}</strong>
+        </div>
+</li>}
+        {display4 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Optimum_no_of_adjusters: {revData.optimum_no_of_adjusters}</strong>
+        </div>
+</li>}
+    </ul>
+    </div>
+
     </>
   );
 };
