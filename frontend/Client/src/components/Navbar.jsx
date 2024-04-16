@@ -36,9 +36,9 @@ export const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="/" className="block text-white hover:text-gray-300"/>Home
-            <a href="/Services" className="block text-white hover:text-gray-300"/>Services
-            <a href="/Contact" className="block text-white hover:text-gray-300"/>Contact
+            <Link to="/" className="block text-white hover:text-gray-300">Home</Link>
+            <Link to="/Services" className="block text-white hover:text-gray-300">Services</Link>
+            <Link to="/Contact" className="block text-white hover:text-gray-300">Contact</Link>
           </div>
         </div>
       )}

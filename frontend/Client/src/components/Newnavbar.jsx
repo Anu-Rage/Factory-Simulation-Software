@@ -13,7 +13,7 @@ export const Newnavbar = () => {
   };
 
   if(islogout){
-    return <Navigate to="/Login"/>
+    return <Navigate to="/"/>
   }
 
   const toggleNavbar = () => {
@@ -40,7 +40,7 @@ export const Newnavbar = () => {
           <div className="hidden lg:flex space-x-4">
             <Link to="/FactoryInfo" className="text-white hover:text-gray-300">Add factory Info</Link>
             <Link to="/Allinfo" className="text-white hover:text-gray-300">Display all Info</Link>
-            <Link to="/Login" onClick={handleClick} className="text-white hover:text-gray-300">Logout</Link>
+            <Link to="/" onClick={handleClick} className="text-white hover:text-gray-300">Logout</Link>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ export const Newnavbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link to="/FactoryInfo" className="block text-white hover:text-gray-300">Add factory Info</Link>
             <Link to="/Allinfo" className="block text-white hover:text-gray-300">Display all Info</Link>
-            <Link to="/Login" onClick={handleClick} className="block text-white hover:text-gray-300">Logout</Link>
+            <Link to="/" onClick={handleClick} className="block text-white hover:text-gray-300">Logout</Link>
           </div>
         </div>
       )}

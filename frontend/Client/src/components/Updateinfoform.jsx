@@ -6,10 +6,43 @@ export const Updateinfoform = () => {
     const { id } = useParams();
     const [curr, setFactoryInfo] = useState(null);
     const [loading, setLoading] = useState(true);
-  
+
+    const [revData,setrevData] = useState({
+      Avg_adjuster_utilization:setFactoryInfo.Avg_adjuster_utilization,
+      Mttf:setFactoryInfo.Mttf,
+      Avg_machine_utilization:setFactoryInfo.Avg_machine_utilization,
+      optimum_no_of_adjusters:setFactoryInfo.optimum_no_of_adjusters
+    })
+
+    const [display1,setDisplayValue1] =useState(false);
+    const [display2,setDisplayValue2] =useState(false);
+    const [display3,setDisplayValue3] =useState(false);
+    const [display4,setDisplayValue4] =useState(false);
+
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const [error, setError] = useState(null);
+
+    const datadisplay = (x)=>{
+      switch(x){
+      case '1':
+          setDisplayValue1(true);
+          console.log(display1);
+          break;
+      case '2':
+          setDisplayValue2(true);
+          console.log(display2);
+          break;
+        case '3':
+          setDisplayValue3(true);
+          console.log(display3);
+          break;
+        case '4':
+          setDisplayValue4(true);
+          console.log(display4);
+          break;
+      }
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,6 +59,13 @@ export const Updateinfoform = () => {
                     throw new Error('Failed to fetch data');
                 }
                 const data = await response.json();
+                const rdata = {
+                  Avg_adjuster_utilization:data[0].Avg_adjuster_utilization,
+                  Mttf:data[0].Mttf,
+                  Avg_machine_utilization:data[0].Avg_machine_utilization,
+                  optimum_no_of_adjusters:data[0].optimum_no_of_adjusters
+                }
+                setrevData(rdata);
                 setFactoryInfo(data);
             } catch (error) {
                 setError(error.message);
@@ -175,6 +215,41 @@ export const Updateinfoform = () => {
             </div>
           </div>
         </div>
+
+        <div className="flex justify-center mt-8">
+      <button onClick={() =>datadisplay('1')} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        Avg_adjuster_utilization
+      </button>
+      <button onClick={() =>datadisplay('2')} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        Avg_machine_utilization
+      </button>
+      <button onClick={() =>datadisplay('3')} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-4 focus:outline-none focus:shadow-outline">
+        MTTF
+      </button>
+      <button onClick={() =>datadisplay('4')} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Optimum_no_of_adjusters
+      </button>
+    </div>
+    <div className="flex justify-center mt-8">
+    <ul>
+        {display1 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Avg_adjuster_utilization: {revData.Avg_adjuster_utilization}</strong>
+        </div>
+</li>}
+        {display2 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Avg_machine_utilization: {revData.Avg_machine_utilization}</strong>
+        </div>
+</li>}
+        {display3 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">  MTTF: {revData.Mttf}</strong>
+        </div>
+</li>}
+        {display4 && <li><div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+        <strong className="font-bold">Optimum_no_of_adjusters: {revData.optimum_no_of_adjusters}</strong>
+        </div>
+</li>}
+    </ul>
+    </div>
         </>
       )
 }
