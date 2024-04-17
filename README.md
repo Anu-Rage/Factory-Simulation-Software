@@ -20,3 +20,6 @@ in machine utilization | the percentage of time a machine is up and running and 
 machine and adjuster utilization depend on such factors as the number of machines, the number of adjusters,
 the reliability of the machines in terms of mean time to failure (MTTF). This software would be used by
 different factories to determine the optimum number of adjusters that they should employ.
+
+By-ANURAG PATEL
+121CS0201
