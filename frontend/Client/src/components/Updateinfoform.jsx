@@ -75,7 +75,7 @@ export const Updateinfoform = () => {
         };
 
         fetchData();
-    }, [id]);
+    }, [id,curr]);
 
     const [formData, setFormData] = useState({
         Category: '',
